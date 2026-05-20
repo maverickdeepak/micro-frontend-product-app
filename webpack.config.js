@@ -1,13 +1,20 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { VueLoaderPlugin } = require("vue-loader");
+const dotenv = require("dotenv");
+
+// load .env.production if NODE_ENV is production else load .env
+const env = dotenv.config({
+  path: process.env.NODE_ENV === "production" ? ".env.production" : ".env",
+}).parsed;
 
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
 
   output: {
-    publicPath: "https://d32mpbk2wjq13i.cloudfront.net/",
+    publicPath: env.PUBLIC_PATH,
+    clean: true,
   },
 
   devServer: {

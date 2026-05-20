@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --mode production"
+    "build": "NODE_ENV=production webpack --mode production"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "@vue/compiler-sfc": "^3.5.34",
     "babel-loader": "^10.1.1",
     "css-loader": "^7.1.4",
+    "dotenv": "^17.4.2",
     "html-webpack-plugin": "^5.6.7",
     "vue-loader": "^17.4.2",
     "vue-style-loader": "^4.1.3",
